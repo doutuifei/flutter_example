@@ -3,22 +3,26 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "手机号分段",
       home: Scaffold(
-        body: PhoneTextFiled(),
+        appBar: AppBar(title:const Text("手机号分段",textDirection: TextDirection.ltr,)),
+        body: const PhoneTextFiled(),
       ),
     );
   }
 }
 
 class PhoneTextFiled extends StatefulWidget {
+  const PhoneTextFiled({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _PhoneTextFiledState();
 }
@@ -29,15 +33,14 @@ class _PhoneTextFiledState extends State<PhoneTextFiled> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        alignment: Alignment.center,
         padding: const EdgeInsets.all(20),
         child: TextField(
+          autofocus: true,
           controller: controller,
           keyboardType: TextInputType.phone,
           style: const TextStyle(color: Colors.black, fontSize: 16),
           decoration: const InputDecoration(
-            hintText: "请输入手机号",
-            border: InputBorder.none,
+            hintText: "请输入手机号"
           ),
           textInputAction: TextInputAction.done,
           inputFormatters: <TextInputFormatter>[LengthLimitingTextInputFormatter(13)],
