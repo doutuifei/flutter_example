@@ -36,6 +36,8 @@ dependencies:
 
   dio: ^4.0.0
 
+  video_player: ^2.2.7
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
