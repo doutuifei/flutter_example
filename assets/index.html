@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<div id="box" style="overflow: auto;height: 100%">
+    <div>
+        <h1>这是一个本地的Html文件</h1>
+    </div>
+    <div style="margin-top: 2rem;margin-left: 1rem;">
+        <div>
+            <button onclick="jsCallFlutter()" style="width:100%;height:100px">点击调用Flutter代码postMessage</button>
+        </div>
+        <div>
+            <button onclick="jsCallNative()" style="width:100%;height:100px">点击调用Flutter代码callNative</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function jsCallFlutter(){
+      toast.postMessage("JS调用Flutter postMessage");
+    }
+
+    function jsCallNative(){
+      jscomm.callNative("JS调用Flutter callNative");
+    }
+
+    function flutterCallJsMethod(message){
+      alert(message);
+      return "我是JS返回的Result";
+    }
+
+    function flutterCallJsMethodNoResult(message){
+      alert(message);
+    }
+</script>
+</body>
+</html>
+
