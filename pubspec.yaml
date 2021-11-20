@@ -38,6 +38,14 @@ dependencies:
 
   video_player: ^2.2.7
 
+  webview_flutter: ^2.3.1
+
+  fluttertoast: ^8.0.8
+
+dependency_overrides:
+
+    webview_flutter_android: 2.2.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -59,6 +67,9 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  assets:
+    - assets/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
