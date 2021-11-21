@@ -42,10 +42,11 @@ class _WebState extends State<Web> {
     String url = "";
     if (Platform.isAndroid) {
       url = "file:///android_asset/flutter_assets/assets/index.html";
+      ///JS显示弹窗使用
+      WebView.platform = SurfaceAndroidWebView();
     } else if (Platform.isIOS) {
       url = "file://Frameworks/App.framework/flutter_assets/assets/index.html";
     }
-
     return Column(
       children: [
         ElevatedButton(
@@ -53,7 +54,7 @@ class _WebState extends State<Web> {
             if (_controller != null) {
               _controller!
                   .runJavascriptReturningResult(
-                      "flutterCallJsMethod('Flutter调用了JS')")
+                      "flutterCallJsMethod('Flutter调用了JS，点击确定收到返回值并Toast')")
                   .then((value) {
                 Fluttertoast.showToast(msg: value.toString());
               });
