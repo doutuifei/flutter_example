@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -83,6 +84,9 @@ class _WebState extends State<Web> {
             JavascriptChannel(
                 name: "jscomm",
                 onMessageReceived: (message) {
+                  dynamic result = json.decode(message.message);
+                  String event = result["event"];
+                  String data = result["data"];
                   Fluttertoast.showToast(msg: message.message.toString());
                 }),
           },
